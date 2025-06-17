@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/CountdownSection.css';
+import { Link } from 'react-router-dom';
 import { FaChair } from 'react-icons/fa'; // Font Awesome Chair icon
 import { FaClock } from 'react-icons/fa'; // Font Awesome Clock icon
 
@@ -60,9 +61,9 @@ const CountdownSection = () => {
           </div>
         </div>
 
-        <a href="#register" className="register-btn">
-          <FaChair style={{ marginRight: '0.5rem' }} /> Register Now
-        </a>
+        <Link to="/register" className="register-btn">
+            <FaChair style={{ marginRight: '0.5rem' }} /> Register
+          </Link>
       </div>
     </section>
   );
