@@ -60,10 +60,10 @@ const CountdownSection = () => {
             <small>SECONDS</small>
           </div>
         </div>
-
         <Link to="/register" className="register-btn">
-            <FaChair style={{ marginRight: '0.5rem' }} /> Register
+            <FaChair style={{ marginRight: '0.5rem' }} /> Register Now
           </Link>
+        
       </div>
     </section>
   );
