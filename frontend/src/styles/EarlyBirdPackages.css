@@ -1,0 +1,130 @@
+/* Section wrapper */
+.early-bird-section {
+  background-color: #f9fbfd; /* Light background */
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+/* Heading styles */
+.heading {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+/* Grid for cards */
+.packages-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Individual package card */
+.package-card {
+  background-color: #ffffff;
+  color: #333;
+  width: 280px;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* Package title */
+.package-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e53935;
+  margin-bottom: 0.5rem;
+}
+
+/* Price */
+.package-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+/* Feature list */
+.features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.features li {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.features li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* Button */
+.register-btn {
+  margin-top: auto;
+  background: #000000;
+  color: white;
+  padding: 0.75rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  /* ✅ FIX */
+  align-self: center;
+  width: auto;
+  max-width: 90%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+.register-btn:hover {
+  background: #4050e3;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .packages-grid {
+    gap: 1.5rem;
+  }
+
+  .package-card {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .package-card {
+    width: 100%;
+    max-width: 360px;
+  }
+}

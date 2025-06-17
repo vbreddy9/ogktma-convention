@@ -1,0 +1,119 @@
+.countdown-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #000; /* fallback */
+}
+
+.countdown-overlay {
+  width: 100%;
+  padding: 5rem 2rem;
+  background-image: url('../assets/marriott.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: #fff;
+}
+
+.countdown-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.733); /* dark overlay */
+  z-index: 1;
+}
+
+.countdown-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+.clock-icon {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.countdown-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6f61;
+  margin-bottom: 0.5rem;
+}
+
+.countdown-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #eee;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.time-box {
+  text-align: center;
+}
+
+.time-box span {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.time-box small {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.separator {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff6f61;
+}
+
+.register-btn {
+  background: #ff5722;
+  color: #fff;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.register-btn:hover {
+  background: #e64a19;
+}
+.clock-icon {
+  font-size: 80px; /* increase from 60px */
+  margin-bottom: 1rem;
+}
+
+
+@media screen and (max-width: 600px) {
+  .countdown-timer {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .time-box span {
+    font-size: 2.2rem;
+  }
+
+  .separator {
+    font-size: 2rem;
+  }
+}
