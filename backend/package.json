@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  
   "description": "OGKTMA Member Registration Backend - handles form submission, PDF generation, QR, and email delivery",
   "main": "server.js",
   "scripts": {
@@ -9,7 +8,15 @@
     "dev": "nodemon server.js",
     "test": "echo \"No tests defined\" && exit 0"
   },
-  "keywords": ["express", "pdf", "qr", "email", "nodemailer", "pdfkit", "ogktma"],
+  "keywords": [
+    "express",
+    "pdf",
+    "qr",
+    "email",
+    "nodemailer",
+    "pdfkit",
+    "ogktma"
+  ],
   "author": "OGKTMA Developer",
   "license": "MIT",
   "dependencies": {

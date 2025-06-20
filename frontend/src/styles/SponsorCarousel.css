@@ -45,17 +45,17 @@
 .sponsor-right {
   flex: 1 1 65%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .logo-box {
-  width: 220px;
-  height: 160px;
+  width: 150px;
+  height: 100px;
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,8 +90,14 @@
     font-size: 2rem;
   }
 
+  .sponsor-right {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   .logo-box {
-    width: 180px;
-    height: 120px;
+    width: 120px;
+    height: 80px;
+    margin: 0.5rem;
   }
 }

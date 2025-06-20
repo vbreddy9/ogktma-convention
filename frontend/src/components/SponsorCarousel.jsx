@@ -2,12 +2,13 @@ import React from 'react';
 import '../styles/SponsorCarousel.css';
 import { Link } from 'react-router-dom';
 import { FaChair } from 'react-icons/fa'; // Font Awesome Chair icon
-import sponsor1 from '../assets/dummy-image.jpg';
-import sponsor2 from '../assets/dummy-image-1.jpg';
-import sponsor3 from '../assets/dummy-image-2.jpg';
+import sponsor1 from '../assets/modi-financial-group.webp';
+import sponsor2 from '../assets/navaami.webp';
+import sponsor3 from '../assets/phathom.webp';
+import sponsor4 from '../assets/cpa.webp';
 
 const SponsorCarousel = () => {
-  const logos = [sponsor1, sponsor2, sponsor3];
+  const logos = [sponsor1, sponsor2, sponsor3, sponsor4];
 
   return (
     <div className="sponsor-section">

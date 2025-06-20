@@ -18,14 +18,13 @@
   width: 100%;
 }
 
-/* ✅ Grid should align items side-by-side */
+/* ✅ Responsive Grid */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns */
-  gap: 1rem;
-  justify-items: center; /* centers the cards inside each grid column */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
-
 
 /* Card styles */
 .card {
@@ -35,8 +34,8 @@
   text-align: left;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 300px;
-  margin: 0 auto;
+  width: 260px;
+  max-width: 100%;
 }
 
 .card:hover {
@@ -53,14 +52,6 @@
 
 .card-info {
   padding: 0.8rem 1rem;
-}
-
-.card-info h3 {
-  font-size: 1rem;
-}
-
-.card-info p {
-  font-size: 0.9rem;
 }
 
 .title-wrapper {
@@ -89,9 +80,19 @@
   font-size: 0.95rem;
 }
 
-/* ✅ Responsive stack for small screens */
-@media screen and (max-width: 768px) {
+/* ✅ Responsive adjustments */
+@media screen and (max-width: 1024px) {
   .grid {
-    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .card {
+    width: 220px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 90%;
   }
 }

@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import '../styles/MemberRegistrationForm.css';
 
-// Captcha generator
 const generateCaptcha = () => {
   const num1 = Math.floor(Math.random() * 10) + 1;
   const num2 = Math.floor(Math.random() * 10) + 1;
   return { question: `${num1} + ${num2}`, answer: (num1 + num2).toString() };
 };
 
-// Membership pricing
 const membershipPrices = {
   "VIP EXCLUSIVE ($5,000)": 5000,
   "VIP SPONSOR ($3,000)": 3000,
   "PREMIUM DOUBLE ($1,500)": 1500,
   "PREMIUM SINGLE ($1,000)": 1000,
-  "New Membership ($0)": 0,
-  "Life Membership ($500)": 500
+  "HALF PAGE ADD ($300)": 300,
+  "FULL PAGE ADD ($500)": 500
 };
 
 const MemberRegistrationForm = () => {
   const [captcha, setCaptcha] = useState(generateCaptcha());
+  const [submitting, setSubmitting] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -72,30 +72,46 @@ const MemberRegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Captcha validation
+    if (submitting) return;
+
     if (formData.captchaAnswer !== captcha.answer) {
       alert('Incorrect captcha answer');
       setCaptcha(generateCaptcha());
       return;
     }
 
-    // Optionally save to backend
+    setSubmitting(true);
+
     try {
-      await fetch('http://localhost:4000/api/register', {
+      const response = await fetch('http://localhost:4000/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
+
+      const data = await response.json();
+      if (!data.success) {
+        alert(data.message || 'Submission failed.');
+        setSubmitting(false);
+        return;
+      }
+
+      alert('Form submitted successfully. PDF and confirmation email sent to your inbox.');
+
+      // 👇 Temporarily disable PayPal redirect during testing
+      // const totalAmount = calculateTotal();
+      // alert('Redirecting to PayPal for payment...');
+      // setTimeout(() => {
+      //   const paypalURL = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=president@ogktma.org&item_name=OGKTMA+Membership+Registration&amount=${totalAmount}&currency_code=USD`;
+      //   window.location.href = paypalURL;
+      // }, 1000);
+
     } catch (err) {
       console.error(err);
-      alert('Server error');
-      return;
+      alert('Server error. Please try again later.');
+    } finally {
+      setSubmitting(false);
     }
-
-    // Redirect to PayPal
-    const totalAmount = calculateTotal();
-    const paypalURL = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=president@ogktma.org&item_name=OGKTMA+Membership+Registration&amount=${totalAmount}&currency_code=USD`;
-    window.location.href = paypalURL;
   };
 
   return (
@@ -108,10 +124,6 @@ const MemberRegistrationForm = () => {
       <div className="form-row">
         <input type="email" name="email" placeholder="Email Id *" onChange={handleChange} required />
         <input type="text" name="phone" placeholder="Mobile Number *" onChange={handleChange} required />
-      </div>
-      <div className="form-row">
-        <input type="password" name="password" placeholder="Password *" onChange={handleChange} required />
-        <input type="password" name="confirmPassword" placeholder="Confirm Password *" onChange={handleChange} required />
       </div>
       <div className="form-row">
         <input type="text" name="address" placeholder="Address *" onChange={handleChange} required />
@@ -127,13 +139,9 @@ const MemberRegistrationForm = () => {
         <input type="text" name="zipcode" placeholder="Zipcode" onChange={handleChange} />
       </div>
       <div className="form-row">
-        <input type="text" name="homePhone" placeholder="Home Phone Number" onChange={handleChange} />
-        <input type="text" name="yearJoined" placeholder="Year of joining RMC *" onChange={handleChange} required />
-      </div>
-      <div className="form-row">
+        <input type="text" name="yearJoined" placeholder="Year of joining OGKTMA *" onChange={handleChange} required />
         <input type="text" name="speciality" placeholder="Speciality *" onChange={handleChange} required />
       </div>
-
       <h2>Membership Type</h2>
       <div className="form-row">
         <select name="membershipType" onChange={handleChange} required>
@@ -169,15 +177,13 @@ const MemberRegistrationForm = () => {
 
       <h2>Donations to OGKTMA</h2>
       <div className="form-row">
-        <input type="number" name="donation" placeholder="Donation Amount ($)" onChange={handleChange} />
+        <input type="text" name="donation" placeholder="Donation Amount ($)" onChange={handleChange} />
       </div>
 
-      {/* Show total */}
       <div className="form-row">
         <strong>Total Payable: ${calculateTotal()}</strong>
       </div>
 
-      {/* Captcha */}
       <div className="form-row captcha">
         <label>Security Captcha: {captcha.question}</label>
         <input type="text" name="captchaAnswer" onChange={handleChange} required />
@@ -190,8 +196,9 @@ const MemberRegistrationForm = () => {
         </label>
       </div>
 
-
-      <button type="submit" className="submit-btn">Submit</button>
+      <button type="submit" className="submit-btn" disabled={submitting}>
+        {submitting ? 'Submitting...' : 'Submit'}
+      </button>
     </form>
   );
 };

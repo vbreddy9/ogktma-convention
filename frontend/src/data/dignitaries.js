@@ -1,12 +1,9 @@
-import dummy1 from '../assets/dummy-image-1.jpg';
-import dummy2 from '../assets/dummy-image-2.jpg';
-import dummy3 from '../assets/dummy-image-3.jpg';
-import dummy from '../assets/dummy-image.jpg';
+import dummy1 from '../assets/Dr_Chandra_Sekhar.jpg';
+import dummy2 from '../assets/Dr_Gadam_Vivekanand.jpg';
+
 
 export const dignitaries = [
-  { img: dummy1, name: "Bobby Mukkamala, MD", title: "President‑elect, AMA" },
-  { img: dummy3, name: "Dr. D. Nageshwara Reddy", title: "Padma Vibhushan Awardee" },
-  { img: dummy, name: "Leela Ranganathan, MD", title: "Clinical Research Director" },
-  { img: dummy2, name: "Leela Ranganathan, MD", title: "Clinical Research Director" },
-  
+  { img: dummy1, name: "Dr. Chandra Sekhar Pemmasani", title: "Member of Parliament Guntur" },
+  { img: dummy2, name: "Dr. Gaddam Vivekanand", title: "Labour and Mining Minister Telangana" },
+    
 ];
