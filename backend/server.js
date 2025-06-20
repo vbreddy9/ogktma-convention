@@ -7,6 +7,7 @@ const PDFDocument = require('pdfkit');
 const QRCode = require('qrcode');
 const fs = require('fs');
 const path = require('path');
+const serverless = require('serverless-http');
 
 dotenv.config();
 
@@ -215,6 +216,5 @@ app.get('/home', (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
-});
+
+module.exports = serverless(app);
