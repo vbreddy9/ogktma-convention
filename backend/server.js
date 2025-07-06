@@ -1,14 +1,9 @@
-// ✅ BACKEND: server.js
-
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 const serverless = require('serverless-http');
 const XLSX = require('xlsx');
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -16,11 +11,15 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(bodyParser.json());
 
+// 🔒 Replace with hardcoded credentials (use caution)
+const ADMIN_EMAIL = 'info@vr2tech.in';
+const EMAIL_PASS = 'ubrdxgraugotinxz';
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.ADMIN_EMAIL,
-    pass: process.env.EMAIL_PASS
+    user: ADMIN_EMAIL,
+    pass: EMAIL_PASS
   }
 });
 
@@ -81,9 +80,9 @@ app.post('/api/register', async (req, res) => {
   try {
     const excelBuffer = createExcelBuffer(formData);
 
-    // 1️⃣ Send confirmation email to user (no excel)
+    // 1️⃣ Send confirmation email to user
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: ADMIN_EMAIL,
       to: cleanEmail,
       subject: 'OGKTMA Registration Confirmation',
       html: `<p>Dear <strong>${formData.firstName}</strong>,</p>
@@ -93,10 +92,10 @@ app.post('/api/register', async (req, res) => {
              <p>Regards, OGKTMA Team</p>`
     });
 
-    // 2️⃣ Send admin email with Excel attached
+    // 2️⃣ Send admin email with Excel attachment
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.ADMIN_EMAIL || 'info@ogktma.org',
+      from: ADMIN_EMAIL,
+      to: ADMIN_EMAIL,
       subject: `New OGKTMA Registration: ${formData.firstName} ${formData.lastName}`,
       html: `<div><p><strong>Full Registration Details:</strong></p>
         <ul>
@@ -127,7 +126,7 @@ app.post('/api/register', async (req, res) => {
       ]
     });
 
-    // 3️⃣ Respond with PayPal URL for redirect
+    // 3️⃣ Respond with PayPal redirect
     const paypalURL = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=president@ogktma.org&item_name=OGKTMA+Membership+Registration&amount=${totalAmount}&currency_code=USD`;
     res.status(200).json({ success: true, redirectUrl: paypalURL });
 
