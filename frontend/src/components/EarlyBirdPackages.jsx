@@ -1,4 +1,3 @@
-// EarlyBirdPackages.jsx
 import React from 'react';
 import '../styles/EarlyBirdPackages.css';
 import { Link } from 'react-router-dom';
@@ -63,7 +62,45 @@ const packages = [
       'Sunday brunch',
       'Access to the Expo Hall',
       'Cultural Programs'
-      
+    ]
+  },
+  {
+    title: 'SINGLE REGISTRATION',
+    price: '$300',
+    features: [
+      'Registration for 1 Person',
+      'Hotel not included – book your own through Marriott',
+      'CME on Saturday',
+      'Friday dinner, Saturday breakfast, lunch, dinner, and Sunday brunch',
+      'Friday night cultural program –OGKTMA Got Talent',
+      'Saturday night Gala Cultural Program',
+      'Entry to Expo/Booths'
+    ]
+  },
+  {
+    title: 'COUPLE REGISTRATION',
+    price: '$500',
+    features: [
+      'Registration for couple',
+      'Hotel not included – book your own through Marriott',
+      'CME on Saturday',
+      'Friday dinner, Saturday breakfast, lunch, dinner, and Sunday brunch',
+      'Friday night cultural program –OGKTMA Got Talent',
+      'Saturday night Gala Cultural Program',
+      'Entry to Expo/Booths'
+    ]
+  },
+  {
+    title: 'NEXT GEN/YPS/MRSF',
+    price: '$200',
+    features: [
+      'Does not include hotel – please book through Marriott Website',
+      'Includes CME',
+      'Includes Saturday Riverboat Cruise (1–4 PM) on Ohio River',
+      'Includes Saturday Night DJ, Cocktails & Dinner',
+      'Friday dinner, Saturday breakfast, lunch, dinner, and Sunday brunch',
+      'Over 21 years kids of OGKTMA alumni',
+      'Entry to Expo/Booths'
     ]
   }
 ];
@@ -82,9 +119,13 @@ const EarlyBirdPackages = () => {
                 <li key={i}> {feature}</li>
               ))}
             </ul>
-            <Link to="/register" className="register-btn">
-            <FaChair style={{ marginRight: '0.5rem' }} /> Register Now
-          </Link>
+            <Link
+              to="/register"
+              state={{ selectedMembership: `${pkg.title.toUpperCase()} (${pkg.price})` }}
+              className="register-btn"
+            >
+              <FaChair style={{ marginRight: '0.5rem' }} /> Register Now
+            </Link>
           </div>
         ))}
       </div>
