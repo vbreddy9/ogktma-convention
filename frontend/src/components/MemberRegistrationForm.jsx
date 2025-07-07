@@ -15,7 +15,7 @@ const membershipPrices = {
   "PREMIUM SINGLE ($1,000)": 1000,
   "SINGLE REGISTRATION ($300)": 300,
   "COUPLE REGISTRATION ($500)": 500,
-  "NEXT GEN/YPS/MRSF [$200]": 200
+  "NEXT GEN/YPS/MRSF ($200)": 200
 };
 
 const membershipFeatures = {
@@ -77,7 +77,7 @@ const membershipFeatures = {
     'Saturday night Gala Cultural Program',
     'Entry to Expo/Booths'
   ],
-  "NEXT GEN/YPS/MRSF [$200]": [
+  "NEXT GEN/YPS/MRSF ($200)": [
     'Does not include hotel – please book through Marriott Website',
     'Includes CME',
     'Includes Saturday Riverboat Cruise (1–4 PM) on Ohio River',
@@ -190,21 +190,20 @@ const MemberRegistrationForm = () => {
       </div>
 
       <h2>Membership Type</h2>
-      <div className="form-row">
-        <select
-          name="membershipType"
-          value={formData.membershipType}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select Membership Type</option>
-          {Object.keys(membershipPrices).map((label, i) => (
-            <option key={i} value={label}>{label}</option>
-          ))}
-        </select>
-
-      </div>
-
+      <div className="membership-type-wrapper">
+          <label htmlFor="membershipType"><strong>Select Membership Type:</strong></label>
+          <select
+            name="membershipType"
+            value={formData.membershipType}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Membership Type</option>
+            {Object.keys(membershipPrices).map((label, i) => (
+              <option key={i} value={label}>{label}</option>
+            ))}
+          </select>
+        </div>
       {formData.membershipType && membershipFeatures[formData.membershipType] && (
         <div className="membership-note-box">
           <p><strong>What's Included:</strong></p>

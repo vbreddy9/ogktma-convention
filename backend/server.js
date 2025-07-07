@@ -30,7 +30,7 @@ const membershipPrices = {
   "PREMIUM SINGLE ($1,000)": 1000,
   "SINGLE REGISTRATION ($300)": 300,
   "COUPLE REGISTRATION ($500)": 500,
-  "NEXT GEN/YPS/MRSF [$200]": 200,
+  "NEXT GEN/YPS/MRSF ($200)": 200,
   "HALF PAGE ADD ($300)": 300,
   "FULL PAGE ADD ($500)": 500
 };
@@ -64,7 +64,7 @@ const createExcelBuffer = (formData) => {
   return XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' });
 };
 
-app.post('/api/register', async (req, res) => {
+app.post('/register', async (req, res) => {
   const formData = req.body;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -86,10 +86,14 @@ app.post('/api/register', async (req, res) => {
       to: cleanEmail,
       subject: 'OGKTMA Registration Confirmation',
       html: `<p>Dear <strong>${formData.firstName}</strong>,</p>
-             <p>Thank you for registering for the OGKTMA Convention 2025.</p>
-             <p>Your total amount payable is: <strong>$${totalAmount}</strong></p>
-             <p>You will receive further event information soon.</p>
-             <p>Regards, OGKTMA Team</p>`
+       <p>Thank you for registering for the OGKTMA Convention 2025.</p>
+       <p><strong>Membership Type:</strong> ${formData.membershipType}</p>
+       <p><strong>Membership Amount:</strong> $${membershipAmount}</p>
+       <p><strong>Donation:</strong> $${donationAmount}</p>
+       <p><strong>Total Amount Payable:</strong> <span style="font-size: 16px; font-weight: bold;">$${totalAmount}</span></p>
+       <p>You will receive further event information soon.</p>
+       <p>Regards,<br/>OGKTMA Team</p>`
+
     });
 
     // 2️⃣ Send admin email with Excel attachment
