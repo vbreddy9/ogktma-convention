@@ -145,5 +145,5 @@ app.get('/home', (req, res) => {
 });
 
 const serverless = require('serverless-http');
-module.exports = serverless(app);
+module.exports = serverless(app); 
 
