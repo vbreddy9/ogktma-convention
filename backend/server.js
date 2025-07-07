@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const serverless = require('serverless-http');
+
 const XLSX = require('xlsx');
 
 const app = express();
@@ -144,10 +144,6 @@ app.get('/home', (req, res) => {
   res.send('OGKTMA Backend is running 🎉');
 });
 
-if (process.env.NODE_ENV !== 'serverless') {
-  app.listen(PORT, () => {
-    console.log(`✅ Server running locally at http://localhost:${PORT}`);
-  });
-}
-
+const serverless = require('serverless-http');
 module.exports = serverless(app);
+
