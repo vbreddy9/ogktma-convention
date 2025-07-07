@@ -144,6 +144,6 @@ app.get('/home', (req, res) => {
   res.send('OGKTMA Backend is running 🎉');
 });
 
-const serverless = require('serverless-http');
-module.exports = serverless(app); 
+module.exports = app; 
+
 
