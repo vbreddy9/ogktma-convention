@@ -1,17 +1,15 @@
 {
   "version": 2,
   "builds": [
-    { "src": "server.js", "use": "@vercel/node" },
-    { "src": "build/**", "use": "@vercel/static" }
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
   ],
   "routes": [
-    { "src": "/home", "dest": "/server.js" },
-    { "src": "/home/send-email", "dest": "/server.js" },
-
-    { "handle": "filesystem" },
     {
-      "src": "/(.*)",
-      "dest": "/build/index.html"
+      "src": "/api/(.*)",
+      "dest": "/server.js"
     }
   ]
 }
