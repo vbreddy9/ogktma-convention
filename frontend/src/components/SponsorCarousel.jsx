@@ -6,9 +6,10 @@ import sponsor1 from '../assets/modi-financial-group.webp';
 import sponsor2 from '../assets/navaami.webp';
 import sponsor3 from '../assets/phathom.webp';
 import sponsor4 from '../assets/cpa.webp';
+import sponsor5 from '../assets/dummy.png';
 
 const SponsorCarousel = () => {
-  const logos = [sponsor1, sponsor2, sponsor3, sponsor4];
+  const logos = [sponsor5, sponsor5, sponsor5, sponsor5];
 
   return (
     <div className="sponsor-section">
