@@ -154,7 +154,7 @@ const MemberRegistrationForm = () => {
     setSubmitting(true);
 
     try {
-      const response = await fetch('https://ogktma-convention-backend.vercel.app/register', {
+      const response = await fetch('https://backend.ogktma.org//register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
