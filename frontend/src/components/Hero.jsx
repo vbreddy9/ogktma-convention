@@ -11,7 +11,7 @@ const HeroSection = () => {
         <source src={heroVideo} type="video/mp4" />
          </video>
 
-     
+       <div className="hero-overlay">
         <div className="hero-content">
           <h1>38TH ANNUAL</h1>
           <h2>OGKTMA CONVENTION &<br />SCIENTIFIC ASSEMBLY</h2>
@@ -25,7 +25,7 @@ const HeroSection = () => {
           <FaChair style={{ marginRight: '0.5rem' }} /> Register Now
         </a>
         </div>
-      
+      </div>
     </section>
   );
 };
