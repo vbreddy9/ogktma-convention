@@ -32,7 +32,8 @@ const membershipPrices = {
   "COUPLE REGISTRATION ($500)": 500,
   "NEXT GEN/YPS/MRSF ($200)": 200,
   "HALF PAGE ADD ($300)": 300,
-  "FULL PAGE ADD ($500)": 500
+  "FULL PAGE ADD ($500)": 500,
+  "NEXT GEN/YPS/MRSF ($200)": 200,
 };
 
 const createExcelBuffer = (formData) => {
