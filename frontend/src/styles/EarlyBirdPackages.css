@@ -48,6 +48,7 @@
   font-weight: 700;
   color: #e53935;
   margin-bottom: 0.5rem;
+  
 }
 
 /* Price */
@@ -105,6 +106,13 @@
 
 .register-btn:hover {
   background: #4050e3;
+}
+.package-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 /* Responsive styles */
