@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import '../styles/MemberRegistrationForm.css';
 import { useLocation } from 'react-router-dom';
+import creditImage from '../assets/credit.png'; // adjust path if needed
+import guestImage from '../assets/guest.png'; // adjust path if needed
+import proceedImage from '../assets/proceed.png'; // adjust path if needed
+
 
 const generateCaptcha = () => {
   const num1 = Math.floor(Math.random() * 10) + 1;
@@ -9,13 +13,14 @@ const generateCaptcha = () => {
 };
 
 const membershipPrices = {
-  "VIP EXCLUSIVE ($5,000)": 5000,
-  "VIP SPONSOR ($3,000)": 3000,
-  "PREMIUM DOUBLE ($1,500)": 1500,
-  "PREMIUM SINGLE ($1,000)": 1000,
-  "SINGLE REGISTRATION ($300)": 300,
-  "COUPLE REGISTRATION ($500)": 500,
-  "NEXT GEN/YPS/MRSF ($200)": 200
+  "VIP EXCLUSIVE ($5,000)": { price: 5000},
+  "VIP SPONSOR ($3,000)": { price: 3000},
+  "PREMIUM DOUBLE ($1,500)": { price: 1500},
+  "PREMIUM SINGLE ($1,000)": { price: 1000},
+  "SINGLE REGISTRATION ($300)": { price: 300},
+  "COUPLE REGISTRATION ($500)": { price: 500},
+  "NEXT GEN/YPS/MRSF ($200)": { price: 200, subtitle: "For alumni kids 21+" },
+  "STUDENT/TRAINEE ($200)": { price: 200, subtitle: "Member of OGKTMA alumni" }
 };
 
 const membershipFeatures = {
@@ -85,7 +90,17 @@ const membershipFeatures = {
     'Friday dinner, Saturday breakfast, lunch, dinner, and Sunday brunch',
     'Over 21 years kids of OGKTMA alumni',
     'Entry to Expo/Booths'
+  ],
+    "STUDENT/TRAINEE ($200)": [
+    'Registration for 1 Person',
+    'Hotel not included – book your own through Marriott',
+    'CME on Saturday',
+    'Friday dinner, Saturday breakfast, lunch, dinner, and Sunday brunch',
+    'Friday night cultural program –OGKTMA Got Talent',
+    'Saturday night Gala Cultural Program',
+    'Entry to Expo/Booths'
   ]
+
 };
 
 const MemberRegistrationForm = () => {
@@ -119,10 +134,12 @@ const MemberRegistrationForm = () => {
   };
 
   const calculateTotal = () => {
-    const membershipAmount = membershipPrices[formData.membershipType] || 0;
-    const donationAmount = parseFloat(formData.donation) || 0;
-    return membershipAmount + donationAmount;
-  };
+  const membership = membershipPrices[formData.membershipType];
+  const membershipAmount = membership?.price || 0;
+  const donationAmount = parseFloat(formData.donation) || 0;
+  return membershipAmount + donationAmount;
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -172,21 +189,23 @@ const MemberRegistrationForm = () => {
         <input type="text" name="phone" placeholder="Mobile Number *" onChange={handleChange} required />
       </div>
       <div className="form-row">
-        <input type="text" name="address" placeholder="Address *" onChange={handleChange} required />
-        <input type="text" name="city" placeholder="City *" onChange={handleChange} required />
+        <input type="text" name="address" placeholder="Address" onChange={handleChange} />
+        <input type="text" name="city" placeholder="City" onChange={handleChange}  />
       </div>
       <div className="form-row">
-        <select name="state" onChange={handleChange} required>
-          <option value="">Select State</option>
-          <option value="CA">California</option>
-          <option value="TX">Texas</option>
-          <option value="NY">New York</option>
-        </select>
+        <input
+          type="text"
+          name="state"
+          placeholder="Enter your state"
+          onChange={handleChange}
+          
+        />
+
         <input type="text" name="zipcode" placeholder="Zipcode" onChange={handleChange} />
       </div>
       <div className="form-row">
-        <input type="text" name="yearJoined" placeholder="Year of joining OGKTMA *" onChange={handleChange} required />
-        <input type="text" name="speciality" placeholder="Speciality *" onChange={handleChange} required />
+        <input type="text" name="yearJoined" placeholder="Year of joining OGKTMA " onChange={handleChange} />
+        <input type="text" name="speciality" placeholder="Speciality " onChange={handleChange}  />
       </div>
 
       <h2>Membership Type</h2>
@@ -205,15 +224,28 @@ const MemberRegistrationForm = () => {
           </select>
         </div>
       {formData.membershipType && membershipFeatures[formData.membershipType] && (
-        <div className="membership-note-box">
-          <p><strong>What's Included:</strong></p>
-          <ul>
-            {membershipFeatures[formData.membershipType].map((feature, index) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+          <div className="membership-note-box">
+            {/* Subtitle */}
+            {membershipPrices[formData.membershipType]?.subtitle && (
+              <p className="membership-subtitle">
+                <em>{membershipPrices[formData.membershipType].subtitle}</em>
+              </p>
+            )}
+
+            {/* Features */}
+            <p><strong>What's Included:</strong></p>
+            <ul>
+              {membershipFeatures[formData.membershipType].map((feature, index) => (
+                <li key={index}>{feature}</li>
+              ))}
+            </ul>
+
+            {/* Total */}
+            <div className="membership-total">
+              <strong>Total Payable:</strong> ${calculateTotal()}
+            </div>
+          </div>
+        )}
 
       <h2>Spouse Details</h2>
       <div className="form-row">
@@ -252,11 +284,24 @@ const MemberRegistrationForm = () => {
         <input type="text" name="captchaAnswer" onChange={handleChange} required />
       </div>
 
-      <div className="form-row checkbox-row">
-        <label className="checkbox-label">
-          <input type="checkbox" name="termsAccepted" onChange={handleChange} required />
-          I have read and accept the Terms of Service
-        </label>
+      <div className="paypal-note">
+        <strong>Note:</strong> PayPal not required. Use your credit card to register as a guest. <br />
+        Follow the instructions shown in the screenshots below. Complete payment by entering your <strong>guest email address</strong> when prompted on the next page.
+
+        <div className="step-images">
+          <div className="step-box">
+            <img src={creditImage} alt="Step 1" />
+            <p className="step-label">Step 1</p>
+          </div>
+          <div className="step-box">
+            <img src={guestImage} alt="Step 2" />
+            <p className="step-label">Step 2</p>
+          </div>
+          <div className="step-box">
+            <img src={proceedImage} alt="Step 3" />
+            <p className="step-label">Step 3</p>
+          </div>
+        </div>
       </div>
 
       <button type="submit" className="submit-btn" disabled={submitting}>
