@@ -42,9 +42,7 @@
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  -webkit-text-stroke: 1px white;
-  color: transparent;
+  
   margin-bottom: 0.3rem;
   line-height: 1.2;
 }
