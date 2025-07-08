@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/EarlyBirdPackages.css';
 import { Link } from 'react-router-dom';
-import { FaChair } from 'react-icons/fa'; // Font Awesome Chair icon
+import { FaChair } from 'react-icons/fa';
 
 const packages = [
   {
@@ -67,6 +67,7 @@ const packages = [
   {
     title: 'SINGLE REGISTRATION',
     price: '$300',
+    subtitle: 'Ideal for one individual',
     features: [
       'Registration for 1 Person',
       'Hotel not included – book your own through Marriott',
@@ -93,6 +94,7 @@ const packages = [
   {
     title: 'NEXT GEN/YPS/MRSF',
     price: '$200',
+    subtitle: 'For OGKTMA alumni kids (21+)',
     features: [
       'Does not include hotel – please book through Marriott Website',
       'Includes CME',
@@ -102,21 +104,38 @@ const packages = [
       'Over 21 years kids of OGKTMA alumni',
       'Entry to Expo/Booths'
     ]
+  },
+  {
+    title: 'STUDENT/TRAINEE',
+    price: '$200',
+    subtitle: 'Member of OGKTMA alumni',
+    features: [
+      'Registration for 1 Person',
+      'Hotel not included – book your own through Marriott',
+      'CME on Saturday',
+      'Friday dinner, Saturday breakfast, lunch, dinner, and Sunday brunch',
+      'Friday night cultural program –OGKTMA Got Talent',
+      'Saturday night Gala Cultural Program',
+      'Entry to Expo/Booths'
+    ]
   }
 ];
 
 const EarlyBirdPackages = () => {
   return (
-    <section className="early-bird-section" id='packages'>
-      <h2 className="heading">Super Early Bird Packages for OGKTMA <br /> CONVENTION & SCIENTIFIC ASSEMBLY</h2>
+    <section className="early-bird-section" id="packages">
+      <h2 className="heading">
+        Super Early Bird Packages for OGKTMA <br /> CONVENTION & SCIENTIFIC ASSEMBLY
+      </h2>
       <div className="packages-grid">
         {packages.map((pkg, index) => (
           <div className="package-card" key={index}>
             <h3 className="package-title">{pkg.title}</h3>
+            {pkg.subtitle && <p className="package-subtitle">{pkg.subtitle}</p>}
             <p className="package-price">{pkg.price}</p>
             <ul className="features">
               {pkg.features.map((feature, i) => (
-                <li key={i}> {feature}</li>
+                <li key={i}>{feature}</li>
               ))}
             </ul>
             <Link
