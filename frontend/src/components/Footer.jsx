@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p>
-        © OGKTMA USA •{" "} | Email: <a href="mailto:ssandella@yahoo.com">ssandella@yahoo.com</a> | Call: <a href="tel:+15023338929">502-333-8929</a>
+        © OGKTMA USA •{" "} | Email: ssandella@yahoo.com | Call: +1502-333-8929
       </p>
       
     </footer>
