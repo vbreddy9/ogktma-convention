@@ -124,6 +124,19 @@ const packages = [
 const EarlyBirdPackages = () => {
   return (
     <section className="early-bird-section" id="packages">
+      <div className="note-container">
+        <p className="note-message">
+          <strong>Note:</strong> Not purchasing a package? <strong>Book your hotel at discounted rates using the link.</strong> –&nbsp;
+          <a
+            href="https://book.passkey.com/go/OGKTMA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hotel-link"
+          >
+            <strong>BOOK YOUR HOTEL</strong>
+          </a>
+        </p>
+      </div>
       <h2 className="heading">
         Super Early Bird Packages for OGKTMA <br /> CONVENTION & SCIENTIFIC ASSEMBLY
       </h2>
