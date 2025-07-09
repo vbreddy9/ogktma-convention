@@ -90,6 +90,7 @@ app.post('/register', async (req, res) => {
        <p><strong>Membership Amount:</strong> $${membershipAmount}</p>
        <p><strong>Donation:</strong> $${donationAmount}</p>
        <p><strong>Total Amount Payable:</strong> <span style="font-size: 16px; font-weight: bold;">$${totalAmount}</span></p>
+       <p>Note: Please ensure that payment is completed prior to the event</p>
        <p>You will receive further event information soon.</p>
        <p>Regards,<br/>OGKTMA Team</p>`
 
