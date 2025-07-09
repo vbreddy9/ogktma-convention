@@ -32,6 +32,7 @@
 
 /* Nav Menu */
 .nav {
+  color: #000000;
   display: flex;
   align-items: center;
   gap: 1.5rem;
