@@ -32,7 +32,6 @@
 
 /* Nav Menu */
 .nav {
-  color: #000000;
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -41,7 +40,7 @@
 
 .nav a {
   text-decoration: none;
-  color: white; /* default white text */
+  color: black; 
   font-weight: 500;
   transition: color 0.3s;
 }
