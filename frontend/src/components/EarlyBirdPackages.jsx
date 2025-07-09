@@ -124,6 +124,9 @@ const packages = [
 const EarlyBirdPackages = () => {
   return (
     <section className="early-bird-section" id="packages">
+      <h2 className="heading">
+        Super Early Bird Packages for OGKTMA <br /> CONVENTION & SCIENTIFIC ASSEMBLY
+      </h2>
       <div className="note-container">
         <p className="note-message">
           <strong>Note:</strong> Not purchasing a package? <strong>Book your hotel at discounted rates using the link.</strong> –&nbsp;
@@ -137,9 +140,7 @@ const EarlyBirdPackages = () => {
           </a>
         </p>
       </div>
-      <h2 className="heading">
-        Super Early Bird Packages for OGKTMA <br /> CONVENTION & SCIENTIFIC ASSEMBLY
-      </h2>
+      
       <div className="packages-grid">
         {packages.map((pkg, index) => (
           <div className="package-card" key={index}>
