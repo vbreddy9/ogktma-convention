@@ -12,8 +12,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // 🔒 Replace with hardcoded credentials (use caution)
-const ADMIN_EMAIL = 'info@vr2tech.in';
-const EMAIL_PASS = 'ubrdxgraugotinxz';
+const ADMIN_EMAIL = 'president@ogktma.org';
+const EMAIL_PASS = 'ajudlwnozjvgztzr';
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
