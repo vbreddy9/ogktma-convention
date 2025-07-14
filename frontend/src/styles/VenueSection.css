@@ -1,7 +1,7 @@
 .venue-section {
   display: flex;
   flex-wrap: nowrap;
- 
+  font-family: 'Poppins', sans-serif;
   margin: 0 auto;
   padding: 0;
   border-radius: 10px;
