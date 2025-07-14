@@ -22,7 +22,9 @@ const Header = () => {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <img src={heroimage} alt="OGKTMA Logo" className="logo" />
+        <a href="https://ogktma.org/" target="_blank" rel="noopener noreferrer">
+            <img src={heroimage} alt="OGKTMA Logo" className="logo" />
+          </a>
 
         <div className="menu-toggle" onClick={toggleMenu}>
           <span></span><span></span><span></span>
