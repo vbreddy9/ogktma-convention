@@ -11,17 +11,27 @@ const agenda = [
   {
     date: 'Saturday, Sept 6',
     events: [
-      { time: '7:00 AM – 8:00 AM', title: 'Registration & Breakfast' },
-      { time: '7:00 AM – 3:00 PM', title: 'Exhibitions' },
-      { time: '8:00 AM – 11:30 AM', title: 'CME' },
-      { time: '12:00 – 1:00 PM', title: 'Lunch / Sponsor Talk' },
-      { time: '1:00 – 2:00 PM', title: 'Jeopardy (OMC/GMC/KMC/Other Telangana Medical Schools)' },
-      { time: '2:00 – 3:30 PM', title: 'General Body Meeting' },
-      { time: '3:30 – 4:30 PM', title: 'Breakout Sessions' },
-      { time: '6:00 PM', title: 'Cocktails' },
-      { time: '6:00 PM – Midnight', title: 'Gala' },
-      { time: 'Midnight – 2:00 AM', title: 'Mehfil' },
-    ]
+  { time: '7:00 AM – 9:00 AM', title: 'Registration & Breakfast' },
+  { time: '7:00 AM – 3:00 PM', title: 'Exhibitions' },
+
+  // CME Sessions
+  { time: '8:15 AM', title: 'CME: Introduction' },
+  { time: '8:30 AM – 9:00 AM', title: 'Ethics – Dr. Ram Pasupuleti, International Pain Management Specialist, Bowling Green, KY' },
+  { time: '9:00 AM – 9:30 AM', title: 'Joy of Medicine – Dr. Bruce Scott, Past President of AMA' },
+  { time: '9:30 AM – 10:00 AM', title: 'Perils in Social Media and Loneliness – Dr. El-Mallakh, Psychiatrist, Louisville' },
+  { time: '10:00 AM – 10:30 AM', title: 'Break' },
+  { time: '10:30 AM – 11:00 AM', title: 'Maladies of Aging – Dr. Naresh Solanki, Director of Cath Lab, University Jewish Hospital' },
+  { time: '11:00 AM – 11:30 AM', title: 'Can We Beat Cancer – Dr. Dev Karan, Ph.D., Faculty of Urology, U of L' },
+  { time: '11:30 AM – 12:00 PM', title: 'Q & A' },
+
+  { time: '12:00 PM – 1:00 PM', title: 'Lunch / Sponsor Talk' },
+  { time: '1:00 PM – 2:00 PM', title: 'Jeopardy (OMC/GMC/KMC/Other Telangana Medical Schools)' },
+  { time: '2:00 PM – 3:30 PM', title: 'General Body Meeting' },
+  { time: '3:30 PM – 4:30 PM', title: 'Breakout Sessions' },
+  { time: '6:00 PM', title: 'Cocktails' },
+  { time: '6:00 PM – Midnight', title: 'Gala' },
+  { time: 'Midnight – 2:00 AM', title: 'Mehfil' },
+]
   },
   {
     date: 'Sunday, Sept 7',
