@@ -76,60 +76,7 @@ const AgendaComponent = () => {
         ))}
       </section>
 
-      {/* Sponsorship Section */}
-      <div className="sponsorship-container">
-        <h2 className="sponsorship-title">🩺 OGKTMA Annual Convention 2025 – Sponsorship Opportunities</h2>
-
-        <p className="sponsorship-desc">
-          📍 <strong>One of the Largest Indian Medical Alumni Organizations in the U.S.</strong><br />
-          📅 Convention Date: <strong>Sept 5th–7th, 2025</strong> | 🔑 Expected Attendees: <strong>350+ Physicians</strong><br />
-          🌐 Alumni Reach: <strong>4,000+ Nationwide</strong>
-        </p>
-
-        <div className="sponsorship-table-header">
-          <div>🏆 Level</div>
-          <div>💵 Cost</div>
-          <div>🎁 Benefits</div>
-        </div>
-
-        <div className="sponsorship-row">
-          <div><strong style={{ color: '#ffeb3b' }}>Platinum</strong></div>
-          <div>$20,000</div>
-          <div>Back Cover Ad • Gala Recognition • Exhibit Booth • Stage Presentation</div>
-        </div>
-
-        <div className="sponsorship-row">
-          <div><strong style={{ color: '#b2ff59' }}>Diamond</strong></div>
-          <div>$10,000</div>
-          <div>Inside Cover Ad • Gala Recognition • Exhibit Booth</div>
-        </div>
-
-        <div className="sponsorship-row">
-          <div><strong style={{ color: '#ffb300' }}>Gold</strong></div>
-          <div>$5,000</div>
-          <div>Full Page Ad • Exhibit Booth • Recognition</div>
-        </div>
-
-        <div className="sponsorship-row">
-          <div><strong style={{ color: '#b0bec5' }}>Silver</strong></div>
-          <div>$2,500</div>
-          <div>Exhibit Booth Only</div>
-        </div>
-
-        <div className="sponsorship-contact">
-          <p className="contact-heading">Ready to Sponsor?</p>
-          <p className="contact-text">
-            Questions? Contact us at <a href="mailto:ssandella@yahoo.com">ssandella@yahoo.com</a> or{' '}
-            <a href="tel:5023338929">502-333-8929</a>
-          </p>
-          <p className="contact-text">
-            Please mail checks to:<br />
-            <strong>Surender Sandella</strong><br />
-            2100 Cave Spring Place,<br />
-            Louisville, Kentucky, 40223
-          </p>
-        </div>
-      </div>
+      
     </>
   );
 };
