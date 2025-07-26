@@ -11,6 +11,7 @@ import CountdownSection from './components/CountdownSection';
 import AgendaComponent from './components/AgendaComponent';
 import VenueSection from './components/VenueSection';
 import MemberRegistrationForm from './components/MemberRegistrationForm.jsx';
+import SponsorshipSection from './components/SponsorshipSection';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Header />
             <Hero />
             <AgendaComponent />
+            <SponsorshipSection/>
             <AboutSection />
             <InfoSection />
             <DignitariesList />
