@@ -48,10 +48,8 @@ const SponsorshipSection = () => {
         <p className="contact-heading">Ready to Sponsor?</p>
         <p>Questions? Contact us at <a href="mailto:ssandella@yahoo.com">ssandella@yahoo.com</a> or <a href="tel:5023338929">502-333-8929</a></p>
         <p style={{ marginTop: '15px' }}>
-          <strong>Please mail checks to:</strong><br />
-          Surender Sandella<br />
-          2100 Cave Spring Place,<br />
-          Louisville, Kentucky, 40223
+          <strong>Please mail checks to:</strong> Surender Sandella<br />
+          2100 Cave Spring Place, Louisville, Kentucky, 40223
         </p>
       </div>
     </div>
