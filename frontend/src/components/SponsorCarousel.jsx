@@ -16,11 +16,9 @@ const SponsorCarousel = () => {
       <div className="sponsor-wrapper">
         <div className="sponsor-left">
           <h2 className="sponsor-heading">Our Sponsors</h2>
-          {/*
-          <Link to="/register" className="register-btn">
-            <FaChair style={{ marginRight: '0.5rem' }} /> Become a Sponsor
-          </Link>
-          */}
+          <Link to="/become-sponsor" className="register-btn">
+          <FaChair style={{ marginRight: '0.5rem' }} /> Become a Sponsor
+        </Link>
 
         </div>
         <div className="sponsor-right">
